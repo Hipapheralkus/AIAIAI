@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Names</title>
+</head>
+<body>
+    <h1>Names</h1>
+    <ul>
+    {% for name in names %}
+        <li>{{ name|safe }}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

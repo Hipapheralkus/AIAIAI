@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Step 1</title>
+    <style>
+        @font-face {
+            font-family: 'YourFontName';
+            src: url('{{ url_for('static', filename='fonts/fontawesome-webfont.woff') }}') format('woff2'),
+                 url('{{ url_for('static', filename='fonts/FontAwesome.woff2') }}') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            font-family: 'YourFontName', sans-serif;
+        }
+    </style>
+</head>
+<!-- made by ChatGPT4 and Andrej Šimko of Accenture-->
+<body>
+    <h2>Login Step 1: Username</h2>
+    <form action="/login_step1" method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <input type="text" name="username" placeholder="Username" required>
+        <!-- Other hidden parameters -->
+		<input type="hidden" name="rememberme" value="true">
+        <!-- Use the value of hidden4 as hidden3 for submission -->
+		<input type="hidden" name="hidden3" value="{{ hidden3 }}">
+		<input type="submit" value="Next">
+    </form>
+<img src="{{ url_for('static', filename='images/burp-suite-professional.jpg') }}" alt="Description" style="width: 200px">
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Step 3</title>
+</head>
+<body>
+    <h2>Login Step 3: Secret Key</h2>
+		<img src="{{ url_for('static', filename='images/accenture-6.svg') }}" alt="Description" style="width: 200px">
+    <form action="/login_step3" method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <input type="text" name="secret_key" placeholder="Secret Key" required>
+        <!-- Include the hidden value for validation -->
+        <input type="hidden" name="hidden3" value="{{ hidden_value }}">
+        <input type="submit" value="Login">
+    </form>
+</body>
+</html>

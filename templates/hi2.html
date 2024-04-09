@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Say Hi</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+
+</head>
+<body>
+    <h2>Say Hi</h2>
+    <form id="hiForm" action="/hi2" method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="hidden" name="signature" value="">
+        <input type="submit" value="Say Hi">
+    </form>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('hiForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent the default form submission
+        
+        var nameValue = document.querySelector('input[name="name"]').value;
+        var signatureValue = CryptoJS.SHA1(nameValue).toString(CryptoJS.enc.Hex);
+        
+        document.querySelector('input[name="signature"]').value = signatureValue;
+        
+        // Log to console for debugging
+        console.log("Calculated Signature:", signatureValue);
+
+        // Proceed to submit the form programmatically
+        e.target.submit();
+    });
+});
+</script>
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="flash-{{ category }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+{% endwith %} 
+</body>
+</html>

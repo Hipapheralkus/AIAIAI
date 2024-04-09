@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Step 2</title>
+</head>
+<body>
+    <h2>Login Step 2: Password</h2>
+    <form id="loginForm" action="/login_step2" method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="submit" value="Next">
+    </form>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var hidden3Value = '{{ hidden3 }}'; // Use the server-provided value
+
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent the default form submission
+        
+        // Create a hidden input for hidden3 and append it to the form
+        var hiddenInput = document.createElement('input');
+        hiddenInput.setAttribute('type', 'hidden');
+        hiddenInput.setAttribute('name', 'hidden3');
+        hiddenInput.setAttribute('value', hidden3Value);
+        this.appendChild(hiddenInput);
+        
+        // Now submit the form
+        this.submit();
+    });
+});
+</script>    
+</body>
+</html>
