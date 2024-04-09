@@ -13,4 +13,4 @@ Concerning vulnerabilities, the POST to /hi2 results in stored XSS which can be 
 
 If you are interested, check out a deep dive into topics of Session Management and Session Macros in Burp Suite
 
-[![Youtube Live Demo](https://github.com/Hipapheralkus/AIAIAI/assets/4717664/f81b7530-a237-43e9-9ad8-03fd1b9e3744)](https://youtu.be/mzm7BFz4EV4)
+[![Youtube Live Demo](https://github.com/Hipapheralkus/AIAIAI/assets/4717664/f81b7530-a237-43e9-9ad8-03fd1b9e3744)](https://youtu.be/mM3LR9KQePI)
